@@ -1,0 +1,35 @@
+<p>
+  ressource-details works!
+</p>
+<div *ngIf="currentRessource" class="edit-form">
+  <h4>User</h4>
+  <form>
+    <div class="form-group">
+      <label for="type">Type ressource</label>
+      <select
+      class="form-control"
+      id="type"
+      required
+      [(ngModel)]="currentRessource.type"
+      name="type"
+      >
+      <option value="Medical">Medical</option>
+      <option value="Educatif">Educatif</option>
+      </select>
+    </div>
+   
+  </form>
+
+ 
+
+  <button class="badge badge-danger mr-2" (click)="deleteRessource()">
+    Delete
+  </button>
+
+  <button type="submit" class="badge badge-success" (click)="updateRessource()">
+    Update
+  </button>
+  <p>{{ message }}</p>
+</div>
+
+

@@ -1,0 +1,34 @@
+<p>
+  ressources-list works!
+</p>
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Ressources List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let ressource of ressources; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveRessource(ressource, i)" 
+      >
+        {{ ressource.type }}
+      </li>
+    </ul>
+
+    
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentRessource">
+      <h4>Ressource</h4>
+      <div>
+        <label><strong>Type:</strong></label> {{ currentRessource.type }}
+      </div>
+      <div>
+        <label><strong>Lien Ressource:</strong></label> {{ currentRessource.lien }}
+      </div>
+      <a class="badge badge-warning" routerLink="/Ressources/{{ currentRessource.id }}">
+        Edit
+      </a>
+    </div>
+  </div>
+</div>

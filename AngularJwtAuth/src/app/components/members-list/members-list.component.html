@@ -1,0 +1,46 @@
+<div class="list row">
+ 
+  <div class="col-md-6">
+    <h4>Users List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let user of users; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveMember(user, i)" 
+      >
+        {{ user.username }}
+      </li>
+    </ul>
+
+    
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentUser">
+      <h4>User</h4>
+      <div>
+        <label><strong>Username:</strong></label> {{ currentUser.username }}
+      </div>
+      <div>
+        <label><strong>Email:</strong></label> {{ currentUser.email }}
+      </div>
+      <div>
+        <label><strong>FullName:</strong></label> {{ currentUser.name }}
+      </div>
+      <div *ngIf="currentUser.department!=null">
+        <label><strong>Department:</strong></label> {{ currentUser.department }}
+      </div>
+      <div *ngIf="currentUser.adress!=null">
+        <label><strong>Adress:</strong></label> {{ currentUser.adress }}
+      </div>
+      <div *ngIf="currentUser.factureabonment!=null">
+        <label><strong>Abonment:</strong></label> {{ currentUser.factureabonment }}
+      </div>
+      <a class="badge badge-warning" routerLink="/Members/{{ currentUser.id }}">
+        Edit
+      </a>
+    </div>
+
+    
+  </div>
+</div>
